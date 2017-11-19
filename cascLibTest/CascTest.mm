@@ -383,6 +383,15 @@ static int TestOpenStorage_OpenFile(const TCHAR * szStorage, const char * szFile
     return nError;
 }
 
+static int PlatformUpdateFileData(const PCASC_FIND_DATA pFileData) {
+    int nError = ERROR_SUCCESS;
+    
+    NSString *szFileNameSTR = [[NSString stringWithUTF8String:pFileData->szFileName] stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
+    strcpy(pFileData->szFileName, [szFileNameSTR cStringUsingEncoding:NSUTF8StringEncoding]);
+    
+    return nError;
+}
+
 static int TestOpenStorage_EnumFiles(const TCHAR * szStorage, const TCHAR * szListFile = NULL)
 {
     CASC_FIND_DATA FindData;
@@ -417,6 +426,7 @@ static int TestOpenStorage_EnumFiles(const TCHAR * szStorage, const TCHAR * szLi
             dwTickCount = GET_TICK_COUNT();
             while(bFileFound)
             {
+                PlatformUpdateFileData(&FindData);
                 // Extract the file
                 if((dwFoundFiles % 400) == 0)
                 {
@@ -477,6 +487,7 @@ static int TestOpenStorage_ExtractFiles(const TCHAR * szStorage, const TCHAR * s
             // Search the storage
             while(bFileFound)
             {
+                PlatformUpdateFileData(&FindData);
                 // Extract the file
                 LogHelper.PrintProgress("Extracting %s ...", FindData.szPlainName);
                 nError = ExtractFile(hStorage, FindData, szTargetDir);
