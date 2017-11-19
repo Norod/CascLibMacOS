@@ -6,8 +6,10 @@
 mkdir ./CascLib
 mkdir ./CascLib/lib
 cd ../
-#git clone git@github.com:ladislav-zezula/CascLib.git
+git clone git@github.com:ladislav-zezula/CascLib.git
 cd ./CascLib
+git fetch -p --tags
+git pull
 cmake ./
 make
 
