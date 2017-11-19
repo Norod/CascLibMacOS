@@ -426,7 +426,7 @@ static int TestOpenStorage_EnumFiles(const TCHAR * szStorage, const TCHAR * szLi
             dwTickCount = GET_TICK_COUNT();
             while(bFileFound)
             {
-                PlatformUpdateFileData(&FindData);
+                //PlatformUpdateFileData(&FindData);
                 // Extract the file
                 if((dwFoundFiles % 400) == 0)
                 {
@@ -487,7 +487,7 @@ static int TestOpenStorage_ExtractFiles(const TCHAR * szStorage, const TCHAR * s
             // Search the storage
             while(bFileFound)
             {
-                PlatformUpdateFileData(&FindData);
+                //PlatformUpdateFileData(&FindData);
                 // Extract the file
                 LogHelper.PrintProgress("Extracting %s ...", FindData.szPlainName);
                 nError = ExtractFile(hStorage, FindData, szTargetDir);
@@ -548,7 +548,7 @@ static int TestOpenStorage_GetFileDataId(const TCHAR * szStorage, const char * s
 
 int mainCascTest(int argc, const char * argv[])
 {
-    const TCHAR * szListFile = _T("./World of Warcraft 6x.txt");
+    const TCHAR * szListFile = _T("./listfile.txt");
     int nError = ERROR_SUCCESS;
 
     // Keep compiler happy

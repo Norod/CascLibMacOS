@@ -31,7 +31,7 @@
 		E891F5911F96442000A17A63 /* CascTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = E891F58F1F96442000A17A63 /* CascTest.mm */; };
 		E891F5B31F964B4A00A17A63 /* casc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E891F5B21F964B4A00A17A63 /* casc.framework */; };
 		E891F5B41F964B6200A17A63 /* casc.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E891F5B21F964B4A00A17A63 /* casc.framework */; };
-		E891F5B51F96531D00A17A63 /* World of Warcraft 6x.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = E891F59D1F96475E00A17A63 /* World of Warcraft 6x.txt */; };
+		E8CABF9A1FC1E85A00E21132 /* listfile.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = E8CABF991FC1E60D00E21132 /* listfile.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,8 +41,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				E8CABF9A1FC1E85A00E21132 /* listfile.txt in CopyFiles */,
 				E891F5B41F964B6200A17A63 /* casc.framework in CopyFiles */,
-				E891F5B51F96531D00A17A63 /* World of Warcraft 6x.txt in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,8 +107,8 @@
 		E891F5751F96440600A17A63 /* tomcrypt_argchk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tomcrypt_argchk.h; sourceTree = "<group>"; };
 		E891F58E1F96442000A17A63 /* TLogHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TLogHelper.mm; sourceTree = "<group>"; };
 		E891F58F1F96442000A17A63 /* CascTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CascTest.mm; sourceTree = "<group>"; };
-		E891F59D1F96475E00A17A63 /* World of Warcraft 6x.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "World of Warcraft 6x.txt"; sourceTree = "<group>"; };
 		E891F5B21F964B4A00A17A63 /* casc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = casc.framework; sourceTree = "<group>"; };
+		E8CABF991FC1E60D00E21132 /* listfile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = listfile.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,7 +289,7 @@
 		E891F59C1F96475E00A17A63 /* listfile */ = {
 			isa = PBXGroup;
 			children = (
-				E891F59D1F96475E00A17A63 /* World of Warcraft 6x.txt */,
+				E8CABF991FC1E60D00E21132 /* listfile.txt */,
 			);
 			path = listfile;
 			sourceTree = "<group>";
