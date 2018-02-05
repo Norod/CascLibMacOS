@@ -193,11 +193,16 @@ static int ExtractFile(HANDLE hStorage, CASC_FIND_DATA & cf, const TCHAR * szLoc
 //  }
 #endif
 
-    // Close handles
-//  if(pStream != NULL)
-//      FileStream_Close(pStream);
-    if(hFile != NULL)
+     // Close handles
+    if (pStream != NULL) {
+        FileStream_Close(pStream);
+        pStream = NULL;
+    }
+   
+    if(hFile != NULL) {
         CascCloseFile(hFile);
+        hFile = NULL;
+    }
     return nError;
 }
 
