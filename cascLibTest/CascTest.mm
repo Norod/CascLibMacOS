@@ -127,8 +127,8 @@ static int ExtractFile(HANDLE hStorage, CASC_FIND_DATA & cf, const TCHAR * szLoc
         // Replace with encoding key
         if(cf.szFileName[0] == 0)
         {
-            StringFromBinary(cf.EncodingKey, MD5_HASH_SIZE, cf.szFileName);
-            dwFlags |= CASC_OPEN_BY_ENCODING_KEY;
+            StringFromBinary(cf.FileKey, MD5_HASH_SIZE, cf.szFileName);
+            dwFlags |= CASC_OPEN_BY_EKEY;
         }
 
         // Open a file
@@ -224,11 +224,11 @@ static int CompareFile(TLogHelper & LogHelper, HANDLE hStorage, CASC_FIND_DATA &
     // If we don't know the name, use the encoding key as name
     if(cf.szFileName[0] == 0)
     {
-        StringFromBinary(cf.EncodingKey, MD5_HASH_SIZE, cf.szFileName);
-        dwFlags |= CASC_OPEN_BY_ENCODING_KEY;
+        StringFromBinary(cf.FileKey, MD5_HASH_SIZE, cf.szFileName);
+        dwFlags |= CASC_OPEN_BY_EKEY;
 
         CopyString(szTempBuff, cf.szFileName, MAX_PATH);
-        _stprintf(szFileName, _T("%s\\unknown\\%02X\\%s"), szLocalPath, cf.EncodingKey[0], szTempBuff);
+        _stprintf(szFileName, _T("%s\\unknown\\%02X\\%s"), szLocalPath, cf.FileKey[0], szTempBuff);
     }
     else
     {
@@ -328,6 +328,7 @@ static int CompareFile(TLogHelper & LogHelper, HANDLE hStorage, CASC_FIND_DATA &
     return nError;
 }
 
+/*
 //-----------------------------------------------------------------------------
 // Testing functions
 
@@ -354,7 +355,7 @@ static int TestOpenStorage_OpenFile(const TCHAR * szStorage, const char * szFile
     {
         // Check whether the name is the encoding key
         if(IsEncodingKey(szFileName))
-            dwFlags |= CASC_OPEN_BY_ENCODING_KEY;
+            dwFlags |= CASC_OPEN_BY_EKEY;
 
         // Open a file
         LogHelper.PrintProgress("Opening file %s...", szFileName);
@@ -460,6 +461,7 @@ static int TestOpenStorage_EnumFiles(const TCHAR * szStorage, const TCHAR * szLi
         CascCloseStorage(hStorage);
     return nError;
 }
+*/
 
 static int TestOpenStorage_ExtractFiles(const TCHAR * szStorage, const TCHAR * szTargetDir, const TCHAR * szListFile)
 {
